@@ -13,7 +13,7 @@ class Creator(ABC):
         # they directly call the factory method of ConcreteCreator1, 
         # without calling the factory method of Creator class.
         # they don't know how to product Product, but able to utilze Product through factory method.
-        # bad example : product = ConcreteProduct1()
+        # bad example : product = ConcreteProduct1() 
         product = self.factory_method()
         result = f"Creator: The same creator's code has just worked with {product.operation()}"
         return result
