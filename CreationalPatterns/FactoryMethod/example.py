@@ -12,11 +12,13 @@ class Creator(ABC):
         print("when do they call?")
         # they directly call the factory method of ConcreteCreator1, 
         # without calling the factory method of Creator class.
+        # they don't know how to product Product, but able to utilze Product through factory method.
+        # bad example : product = ConcreteProduct1()
         product = self.factory_method()
         result = f"Creator: The same creator's code has just worked with {product.operation()}"
         return result
     
-    
+# when they make new product, make subclass for new product.    
 class ConcreteCreator1(Creator):
     # -> : the type of value that function would return 
     # factory_method was being overrided.
@@ -36,6 +38,7 @@ class ConcreteCreator2(Creator):
 class Product(ABC):
     print("product")
     # only for creator and proudct, they need abstract method.
+    # In product class, they only define mutual interface, as abstract method.
     @abstractmethod
     def operation(self):
         pass
@@ -45,7 +48,8 @@ class Product(ABC):
 # print() inside __init()__ - when the class is first instantiated 
 class ConcreteProduct1(Product):
     def __init__(self):
-        super().__init__
+        # when we want the input from upper class, super init is utilized.
+        super().__init__(self)
     print("product1")
     def operation(self):
         return "{Result of the ConcreteProduct1}"
@@ -54,7 +58,7 @@ class ConcreteProduct2(Product):
     def operation(self):
         return "{Result of the ConcreteProduct2}"
 
-# client code                            
+# client code without any class.                            
 # input creator should be an instance from an Creator or its subclass like ConcreteCreator1 or ConcreteCreator2.                                                                                                                                              
 def client_code(creator: Creator):
     # when I want to check whether the input is the Creator class

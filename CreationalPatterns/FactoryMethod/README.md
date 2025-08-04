@@ -12,4 +12,6 @@
 ## Applicability
 
 - when you don't know the exact types and dependencies of the objects your code should work with.
-- 
+- when you want to provide uses of your library or framework with a way to extend its internal components.
+- when you want to save system resources by reusing objects instead of rebuilding them each time.
+
