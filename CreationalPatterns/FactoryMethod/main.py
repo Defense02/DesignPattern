@@ -8,10 +8,12 @@ class Dialog(ABC):
     def __init__(self):
         pass
 
-    @abstractmethod        
+    @abstractmethod
+    # create one product through one method in one class.    
     def create_button(self) -> Button:
         return 
         
+    # factory method - 
     def operation(self):
         # instance start with small letter.
         button = self.create_button()

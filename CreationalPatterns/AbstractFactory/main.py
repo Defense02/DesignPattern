@@ -10,13 +10,14 @@ class GUIFactory(ABC):
     @abstractmethod
     def create_checkbox(self):
         return Checkbox()
-    
-    
+        
+   
+# In one class, they offer interface to produce product family. 
 class WinFactory(GUIFactory):
     def create_button(self):
         return WinButton()
     
-    def create_checkboc(self):
+    def create_checkbox(self):
         return WinCheckbox()
     
 class MacFactory(GUIFactory):
@@ -57,22 +58,30 @@ class MacCheckbox(Checkbox):
 
 class Application:
     def __init__(self, os):
-        self.factory = GUIFactory
-        self.button = Button()
+        if (os == "Windows"):
+            self.factory = WinFactory()
+        elif (os == "Mac"):
+            self.factory = MacFactory()
+        else:
+            raise Exception("Error! Unknown OS")
         
         
     def createUI(self):
-        button = factory.createButton()
+        self.button = self.factory.create_button()
+        self.checkbox = self.factory.create_checkbox()
+        print(self.button.paint())
+        print(self.checkbox.paint())
+        
         
     def paint(self):
-        
+        pass
 
-class ApplicationConfigurator():
-    
-        
+
 if __name__ == "__main__":
     app_window = Application("Windows")
     app_mac = Application("Mac")
+    app_window.createUI()    
+    app_mac.createUI()
     
     
     
