@@ -18,7 +18,7 @@ class FurnitureFactory(ABC):
         #coffee_table = self.create_coffeetable()
         return f"Chair : {chair.has_legs()} and Coffee Table: {self.create_coffeetable().material()}"
     
-# Concrete factory 
+# Concrete Fctory 1
 class ModernFurnitureFactory(FurnitureFactory):
     def create_chair(self) -> Chair:
         return ModernChair()
@@ -26,7 +26,7 @@ class ModernFurnitureFactory(FurnitureFactory):
     def create_coffeetable(self) -> CoffeeTable:
         return ModernCoffeeTable()
     
-    
+# Concrete Factory 2
 class VictorianFurnitureFactory(FurnitureFactory):
     def create_chair(self) -> Chair:
         return VictorianChair()
@@ -35,35 +35,35 @@ class VictorianFurnitureFactory(FurnitureFactory):
         return VictorianCoffeeTable()
     
     
-# abstract product A
+# Abstract Product A
 class Chair(ABC):
     @abstractmethod
     def has_legs(self):
         pass
     
-# concrete product A-1 
+# Concrete Product A-1 
 class ModernChair(Chair):
     def has_legs(self):
         return "it has 4 legs"
 
-# concrete product A-2
+# Concrete Product A-2
 class VictorianChair(Chair):
     def has_legs(self):
         return "it has 4 legs"
     
     
-# abstract product B
+# Abstract Product B
 class CoffeeTable(ABC):
     @abstractmethod
     def material(self):
         pass
     
-# concrete product B-1
+# Concrete Product B-1
 class ModernCoffeeTable(CoffeeTable):
     def material(self):
         return "Wood"
     
-# concrete product B-2
+# Concrete Product B-2
 class VictorianCoffeeTable(CoffeeTable):
     def material(self):
         return "Silk"
