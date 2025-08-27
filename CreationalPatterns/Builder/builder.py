@@ -1,6 +1,3 @@
-from abc import ABC, abstractmethod
-
-
 class Builder:
     def __init__(self):
         pass
@@ -48,33 +45,3 @@ class CarManualBuilder(Builder):
     def getResult(self):
         return Car
         
-
-class Car:
-
-class Manual:
-    
-class Director:
-    def makeSportsCar(builder: Builder):
-        builder.reset()
-        builder.setSeats(2)
-        builder.setEngine(SportEngine())
-        builder.setTripComputer()
-        builder.setGPS()
-        
-        
-    def makeSUV(builder: Builder):
-        builder.reset()
-        builder.setSeats(4)
-        builder.setEngine(SUVEngine())
-        builder.setTripComputer()
-        builder.setGPS()
-    
-    
-class Applications:
-    def makecar():
-        director = Director()
-        builder = CarBuilder()
-        director.makeSportsCar(builder)
-        car = builder.getResult()
-        manual = builder.get
-    
